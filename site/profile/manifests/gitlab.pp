@@ -11,7 +11,7 @@ class profile::gitlab {
       line    => "external_url 'http://10.20.130.39'",
       match   => '^external_url',
       notify  => Exec['gitlab_reconfigure'],
-      require => Package['gitlab'],
+      require => Package['gitlab-ce'],
     }
 
     ## Gitlab installation items
