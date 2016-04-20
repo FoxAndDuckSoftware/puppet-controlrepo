@@ -1,0 +1,5 @@
+---
+classes:
+    - role::zabbix::server
+
+profile::zabbix::server::zabbixurl: "%{::serverip}"

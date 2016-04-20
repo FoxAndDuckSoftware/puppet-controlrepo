@@ -3,4 +3,5 @@ classes:
     - role::gitlab
     - role::zabbix::agent
 
-profile::zabbix::agent::server: '10.20.130.50'
+profile::gitlab::externalurl: "%{::serverip}"
+profile::zabbix::agent::server: "10.20.130.53"

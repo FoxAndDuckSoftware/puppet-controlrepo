@@ -1,7 +1,7 @@
 # == Class: profile::gitlab
 #
 # Defines what is required for the gitlab instance.
-class profile::gitlab {
+class profile::gitlab( $externalurl = $::servername ) {
     # Gitlab prerequisites and itself
     package { [ 'curl', 'policycoreutils', 'openssh-server', 'openssh-clients',
                 'postfix', 'git' ]:
@@ -12,7 +12,7 @@ class profile::gitlab {
     file_line { 'gitlab_address':
         ensure  => 'present',
         path    => '/etc/gitlab/gitlab.rb',
-        line    => "external_url 'http://10.20.130.39'",
+        line    => join("external_url 'http://", $externalurl, "'"),
         match   => '^external_url',
         notify  => Exec['gitlab_reconfigure'],
         require => Package['gitlab-ce'],
