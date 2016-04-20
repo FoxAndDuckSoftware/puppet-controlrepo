@@ -36,6 +36,7 @@ class profile::gitlab {
     # Postfix ipv4 fix
     file_line { 'postfix_ipv4only':
         ensure => present,
+        path   => '/etc/postfix/main.cf',
         line   => 'inet_protocols = ipv4',
         match  => '^inet_protocols',
         notify => Service['postfix'],
