@@ -1,6 +1,6 @@
 ---
 classes:
     - role::gitlab
-    - role::xabbix::agent
+    - role::zabbix::agent
 
-profile::xabbix::agent::server: '10.20.130.50'
+profile::zabbix::agent::server: '10.20.130.50'
